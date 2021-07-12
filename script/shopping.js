@@ -148,12 +148,12 @@ function updatecart() {
         var price = parseFloat(price_item.innerText)
         var quantity = quantity_item.value;
         quantity = parseFloat(quantity);
-        total = total + (price * quantity);
-        document.getElementsByClassName("cart-total-price")[0].innerHTML = `${total} VNĐ`;
+        
 
     }
     // hiển thị lên trên modal
-
+    total = total + (price * quantity);
+        document.getElementsByClassName("cart-total-price")[0].innerHTML = `${total} VNĐ`;
 }
 
 
