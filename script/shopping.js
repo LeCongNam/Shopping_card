@@ -98,9 +98,9 @@ function addItemToCart(title, price, img) {
     var cart_title = cartItems.getElementsByClassName('cart-item-title');
     for (var i = 0; i < cart_title.length; i++) {
         if (cart_title[i].innerText === title) {
-            alert('Sản Phẩm Đã Có Trong Giỏ Hàng');
-            break
-            //   return;
+            // alert('Sản Phẩm Đã Có Trong Giỏ Hàng');
+            // break
+              return;
         }
     }
     var cartRowContents = "";
@@ -118,7 +118,7 @@ function addItemToCart(title, price, img) {
     cartRowContents += `</div>`;
     cartRow.innerHTML = cartRowContents;
     cartItems.append(cartRow);
-    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', function () {
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', function (event) {
         var button_remove = event.target
         button_remove.parentElement.parentElement.remove()
         updatecart()
