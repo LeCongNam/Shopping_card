@@ -85,8 +85,10 @@ ul li:hover a {
 
 
 #search-box:focus {
-    
-    color: #ccc;
+    margin-left: 2px;
+    padding-left: 20px;
+    font-size: 18px;
+    /* color: #ccc; */
     /* border: 2px solid red; */
   }
 
