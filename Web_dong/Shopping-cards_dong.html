@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cards</title>
+    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.css">
+    <link rel="stylesheet" href="Styles/style2.css">
+
+</head>
+
+<body>
+
+    <div id="loading">
+        <img id="loading-image" src="IMG/preview.gif" alt="Loading..." />
+    </div>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">
+                    <a href="Shopping-cards.html">
+                        <i class="fab fa-apple logo-icon"></i>
+                    </a>
+                </div>
+                <ul>
+                    <li><a href="">Trang chủ</a></li>
+                    <li><a href="">Tài khoản</a></li>
+                    <li><a href="">Liên hệ</a></li>
+                    <li><a href="">Đánh giá</a></li>
+                    <li><a href="form/form.html">
+                            <i class="fas fa-user"></i>
+                            Login
+                        </a></li>
+                </ul>
+                <div class="search">
+                    <input type="text" name="search-box" id="search-box">
+                    <a href="#">
+                        <button id="btn-search" onclick="search_sp()">SEARCH</button>
+                    </a>
+                </div>
+                <div class="giohang">
+                    <a href="#" id="card">
+                        <button id="btn-giohang">
+                            <i class="fas fa-cart-plus"></i>
+                            Giỏ hàng
+                        </button>
+                    </a>
+                </div>
+            </nav>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Giỏ Hàng</h5>
+                        <span class="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="cart-row">
+                            <span class="title-md ten-sp">Sản Phẩm</span>
+                            <span class="title-md img-sp-md">Hình ảnh</span>
+                            <span class="title-md gia-sp">Giá</span>
+                            <span class="title-md soluong">Số Lượng</span>
+                        </div>
+                        <div class="hienthi-sp">
+
+                        </div>
+                        <div class="cart-total">
+                            <strong class="cart-total-title">Tổng Cộng:</strong>
+                            <span class="cart-total-price">0 VNĐ</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary
+                                close-footer">Đóng</button>
+                        <button type="button" class="btn btn-primary order">Thanh
+                            Toán</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Nội dung sp -->
+        <article>
+
+            <!-- end slide -->
+            <div class="loc-sp">
+                <select name="loc-sp" id="loc-sp-select" onchange="locgia()">
+                    <option value="default">Mặc định</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="300">300</option>
+                    <option value="400">400</option>
+                </select>
+                <span>Tuỳ chọn lọc</span>
+            </div>
+
+            <!-- list product start -->
+
+            <div id="noidung" onclick="">
+                <div class="list-card"></div>
+
+            </div>
+
+
+        </article>
+    </div>
+
+
+    <!-- <script src="script/slide.js"></script> -->
+    <script src="script/shopping.js"></script>
+    <!-- Jquery -->
+    <script src="script/jQuery_v3.6.0.js"></script>
+    <script  > 
+        
+            showProduct(), 10000;
+
+      
+    // add loading
+            setTimeout(
+                $(window).on('load', function () {
+                $('#loading').hide();
+            }), 3000
+
+            )
+        
+
+    </script>
+</body>
+
+</html>

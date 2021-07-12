@@ -1,0 +1,491 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1200px;
+    height: 800px;
+    /* background-color: #ccc; */
+    margin: 0px auto;
+}
+
+header {
+    width: 100%;
+    height: 111px;
+    background-color: rgb(98, 223, 181);
+}
+
+a>.logo{
+    text-decoration: none;
+}
+.logo {
+    width: 100px;
+    height: 100px;
+    /* background-color: black; */
+}
+
+.logo .logo-icon {
+    font-size: 50px;
+    z-index: 100;
+    margin: 20px;
+    color: #000;
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    height: 46px;
+    /* background-color: green; */
+    display: inline-block;
+    margin-left: auto;
+    list-style-type: none;
+}
+
+ul li {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    line-height: 111px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+ul li:hover a {
+    color: #ccc;
+}
+
+.search {
+    width: 350px;
+    height: 100%;
+    /* background-color: rgb(69, 18, 252); */
+    margin-left: auto;
+    line-height: 111px;
+}
+
+.search #search-box {
+    width: 200px;
+    height: 36px;
+    /* margin: 2px ; */
+    margin-right: 8px;
+    border-radius: 6px;
+    border: 0px ;
+}
+
+
+#search-box:focus {
+    
+    color: #ccc;
+    /* border: 2px solid red; */
+  }
+
+.search #btn-search {
+    width: 70px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    /* color: white; */
+    background-color: white;
+    border: 1px;
+    box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.6);
+}
+
+.search #btn-search:hover {
+    background-color: #e4dbdb;
+    color: white;
+}
+
+/* gio hang */
+
+.giohang {
+    width: 150px;
+    height: 100px;
+    margin-top: 5px;
+    margin-right: 20px;
+}
+
+.giohang #btn-giohang {
+    width: 120px;
+    height: 40px;
+    margin: 20px;
+    border-radius: 6px;
+    border: 1px;
+    background-color: white;
+    font-size: 17px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.giohang a:hover #btn-giohang {
+    background-color: #efefef;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* lọc */
+
+.loc-sp {
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    /* background-color: #ccc; */
+    border-radius: 3px;
+}
+
+.loc-sp #loc-sp-select {
+    width: 200px;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+/* modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    margin: 0 auto;
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: .3rem;
+    outline: 0;
+}
+
+.modal-body {
+    padding: 1rem;
+}
+
+.modal-footer {
+    display: flex;
+    border-top: 1px solid #aaaaaa;
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: flex-end;
+    border-top: 1px solid #aaaaaa;
+    padding: 1rem;
+}
+
+.modal-footer>:not(:first-child) {
+    margin-left: .25rem;
+}
+
+.btn {
+    cursor: pointer;
+    outline: none;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: all .2s ease-in-out;
+}
+
+.btn-secondary {
+    color: #292b2c;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0275d8;
+    border-color: #0275d8;
+}
+
+.modal-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #aaaaaa;
+    padding: 1rem;
+}
+
+h5.modal-title {
+    font-size: 1.5rem;
+}
+
+.close {
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cart-row {
+    width: 100%;
+}
+
+.title-md {
+    display: inline-block;
+    width: 150px;
+    height: 20px;
+    text-transform: capitalize;
+}
+
+.ten-sp {
+    /* width: 15%; */
+}
+
+.img-sp-md {
+    /* width: 25%; */
+
+}
+
+.gia-sp {}
+
+.soluong {}
+
+/* nội dung sản phẩm */
+
+article {
+    width: 100%;
+    height: 100%;
+    /* background-color: aqua; */
+}
+
+/* card */
+
+.list-card {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start;  
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 3;
+    
+}
+
+.card {
+    /* flex-shrink: 20%; */
+    margin: 20px 50px;
+    flex-basis: 300px;
+    flex-wrap: wrap;
+    width: 33%;
+    height: 350px;
+    /* background-color: #fdfd; */
+    z-index: 1;
+    border-radius: 10px;
+    /* border: 1px; */
+    box-shadow: 1px 1px 13px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    opacity: 0.6;
+}
+
+.card-body {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.card-img {
+    width: 100%;
+    border-radius: 10px;
+    /* padding-top: 6px; */
+}
+
+button#add-card {
+    width: 100px;
+    height: 36px;
+    background-color: #f3f32d;
+    border: 1px;
+    border-radius: 5px;
+}
+
+button#add-card:hover {
+    cursor: pointer;
+    background-color: #ccc;
+    color: white;
+}
+
+h5.card-title {
+    /* display: inline-block; */
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+.thongtin-title:hover {
+    color: #d8d1d1;
+}
+
+#gia {
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* cart */
+.cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #333;
+  }
+  
+  .cart-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .cart-row {
+    display: flex;
+  }
+  
+  .cart-item {
+    width: 45%;
+  }
+  
+  .cart-price {
+    width: 20%;
+    height: 50px;
+    font-size: 1.2em;
+    color: #333;
+    margin-left: 44px;
+    margin-right: 0px;
+  }
+  
+  .cart-quantity {
+    width: 35%;
+  }
+  
+  .cart-item-title {
+    color: #333;
+    margin-left: .5em;
+    font-size: 1.2em;
+  }
+  
+  .cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+    
+  }
+  
+  .btn-danger {
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+    margin-left: 40px;
+  }
+  
+  .btn-danger:hover {
+    background-color: #CC4C4C;
+  }
+  
+  .cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    /* margin-right: 5em; */
+  }
+  
+  .cart-row:last-child {
+    border-bottom: 1px solid black;
+  }
+  
+  .cart-row:last-child .cart-column {
+    border: none;
+  }
+  
+  .cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  
+  .cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+  }
+  
+  .cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+  }
+
+
+
+  /* add loading */
+  #loading {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    opacity: 0.7;
+    background-color: rgb(240, 233, 233);
+    z-index: 99;
+  }
+  
+  #loading-image {
+    position: absolute;
+    top: 100px;
+    left: 240px;
+    z-index: 100;
+  }
