@@ -1,61 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
+    <title>Form Đăng kí</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://smtpjs.com/v3/smtp.js"> </script>
+
+
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
 
-    <form action="../Shopping-cards.html" method="POST" class="form" id="form-1">
-        <div class="heading-content">
-            <h3 id="heading-form">Thành viên đăng kí</h3>
-            <p id="quote"> Cùng nhau học lập trình miễn phí tại F8</p>
+            <h1 class="heading-content">Trang đăng kí</h1>
+
         </div>
-        <form action="" method="post">
-            <div class="form-group ">
-                <label for="fullname " class="form-label">Họ và Tên</label>
-                <input id="fullname" type="text" name="fullname" class="form-inp">
-                <!-- <span class="form-message"></span> -->
-                <span id="name-error" class="form-message"></span>
+
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-6">
+                <form id="form-1" class="form">
+                    <div>
+                        <h5 class="heading-content">Đăng kí tài khoản</h5>
+                    </div>
+                    <div class="form-group ">
+                        <label for="">Họ Tên</label>
+                        <input type="text" name="user-name" id="user-name" class="form-control"
+                            placeholder="vd: Nguyen van a" aria-describedby="helpId">
+                        <span id="name-error" class="error-form">*</span>
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                        <span class="error-form" id="email-error">*</span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" name="password" id="password"
+                            placeholder="password">
+                        <span class="error-form" id="password-error">*</span>
+
+                    </div>
+                    <inp>
+                        <input type="button" id="btn-submit" class="btn btn-primary" onclick="checkValidate()"
+                            value="Gửi">
 
             </div>
-            <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input id="email" type="email" name="email" class="form-inp">
-                <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-                <label for="password" class="form-label">Mật Khẩu</label>
-                <input id="password" name="password" class="form-inp" type="password" required>
-                <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-                <label for="password" class="form-label">Nhập lại mật khẩu</label>
-                <input id="password-confimation" name="password-confimation" class="form-inp" type="password" required>
-                <span class="form-message"></span>
-            </div>
-            <div>
-                <button type="submit" id="btn-submit">Đăng kí</button>
-            </div>
-        </form>
-    </form>
+            </form>
 
-    <script src="validator.js"></script>
-    <script>
-        
-        Validator({
-            form: "#form-1",
-            rules:[
-            Validator.isRequred("#fullname"),
-            Validator.isEmail("#email"),
-            ]
-        });
+            <div class="col-lg-6">
+
+                <form style="height: 300px;" class="form" method="post">
+                    <div>
+                        <h3 id="heading-2" class="heading-content">Hoặc nhận Email</h3>
+                    </div>
+                    <div class="send-mail">
+                        <div class="form-group">
+                            <label for="email">Nhập Email để xác nhận đơn hàng</label>
+                            <input type="email" class="form-control" name="email-confirm" id="email-confirm"
+                                aria-describedby="emailHelpId" placeholder="">
+                            <span class="error-form">*</span><br>
+                            <input type="button" value="Send Email" onclick="sendEmail()" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+    <script src="validator.js">
+        // checkValidate()
     </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

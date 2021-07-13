@@ -112,7 +112,6 @@ function search_sp() {
     // kiểm tra xem có tìm thấy không. Nếu không thì huỷ
     for (const [ten, gia, img_src, color] of myArr) {
         var title = ten.toLowerCase()
-        console.log(input_search, title);
         if (title.lastIndexOf(input_search) != -1) {
             // gan_block.style.display = "block";
             gan_block.innerHTML +=
@@ -129,8 +128,8 @@ function search_sp() {
                        <span class="gia">${gia} </span>
                    </div>
                    <button id="add-card"
-                       class="add-card-sp">Add to
-                       card</button>
+                   class="add-card-sp" onclick="addProduct()">Add to
+                   card</button>
                </div>
            </a>
        </div>
@@ -140,7 +139,10 @@ function search_sp() {
     }
 
     if (tim_stt == false) {
-        noidung.innerHTML = "Không tìm thấy sản phẩm"
+        noidung.innerHTML = `<h3>Không tìm thấy sản phẩm </h3><br>
+            <a href="../index.html"><button class="back"><i class="fas fa-arrow-left"></i>Trở về trang chủ<button>
+        `
+
     }
 
 }
@@ -268,8 +270,10 @@ function showProductToModal(src_img, titleProduct, priceProdct) {
         }
     })
 
-
     updateCard();
+
+    var btn_remove = cartRow.getElementsByClassName("cart-price");
+    console.log(btn_remove);
 }
 
 

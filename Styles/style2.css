@@ -490,3 +490,23 @@ a {
   #loading-image {
     z-index: 100;
   }
+
+  /* go back */
+  .back{
+      width: 200px;
+      height: 36px;
+      text-transform: uppercase;
+      border-radius: 6px;
+      border: 1px solid gray;
+  }
+
+  .back:hover{
+      background-color: #ccc;
+      color: white;
+      cursor: pointer;
+  }
+  .fa-arrow-left{
+      font-size: 18px;
+      margin-right: 5px;
+      
+  }
