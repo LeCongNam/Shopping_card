@@ -390,13 +390,14 @@ a {
   .cart-item {
     width: 45%;
   }
-  
+  .gia_md{
+      margin-left: 80px;
+  }
   .cart-price {
     width: 20%;
     height: 50px;
     font-size: 1.2em;
     color: #333;
-    margin-left: 44px;
     margin-right: 0px;
   }
   

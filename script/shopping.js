@@ -37,14 +37,14 @@ var remove_cart = document.getElementsByClassName("btn-danger");
 
 
 var myArr = [
-    ["Macbook Air", 100, "IMG/mac1.jpg","Xám"],
-    ["Imac 24 Inch", 100, "IMG/imac2.jpg","trắng"],
-    ["Ipad 5", 300, "IMG/ipad.jpg","Đen"],
+    ["Macbook Air", 100, "IMG/mac1.jpg", "Xám"],
+    ["Imac 24 Inch", 100, "IMG/imac2.jpg", "trắng"],
+    ["Ipad 5", 300, "IMG/ipad.jpg", "Đen"],
     ["Ipod Touch", 200, "IMG/ipod.jpg", "trắng"],
-    ["Macbook Pro 2020", 400, "IMG/mac1.jpg","Đen"],
+    ["Macbook Pro 2020", 400, "IMG/mac1.jpg", "Đen"],
     ["Macbook pro 2021", 200, "IMG/mac2.jpg", "Đen"],
-    ["Macbook 2022", 400, "IMG/mac1.jpg","Trắng"],
- 
+    ["Macbook 2022", 400, "IMG/mac1.jpg", "Trắng"],
+
 ]
 
 function load_img() {
@@ -54,9 +54,11 @@ function load_img() {
     }
 }
 
-function showProduct() {
-    for (const [ten, gia, img_src,color] of myArr) {
 
+
+// Render sản phẩm 
+function showProduct() {
+    for (const [ten, gia, img_src, color] of myArr) {
         var hienthi_sp = document.getElementById("noidung");
         var gan_block = hienthi_sp.getElementsByClassName("list-card")[0];
         gan_block.innerHTML += `
@@ -86,7 +88,7 @@ function showProduct() {
 
 
 
-
+// search sản phẩm
 function search_sp() {
     // xoá nội dung
     var hienthi_sp = document.getElementById("noidung");
@@ -104,14 +106,14 @@ function search_sp() {
 
     // chuyền để so sánh
     input_search.toLowerCase();
-    // kiểm tra xem có tìm thấy không. Nếu không thì huỷ
+
+    // kiểm tra trạng thái
     var tim_stt = false;
-
-
-    for (const [ten, gia, img_src,color] of myArr) {
-       var title =ten.toLowerCase()
+    // kiểm tra xem có tìm thấy không. Nếu không thì huỷ
+    for (const [ten, gia, img_src, color] of myArr) {
+        var title = ten.toLowerCase()
         console.log(input_search, title);
-        if (title.lastIndexOf(input_search) != -1 ) {
+        if (title.lastIndexOf(input_search) != -1) {
             // gan_block.style.display = "block";
             gan_block.innerHTML +=
                 `
@@ -138,13 +140,16 @@ function search_sp() {
     }
 
     if (tim_stt == false) {
-        noidung.innerHTML= "Không tìm thấy sản phẩm"
+        noidung.innerHTML = "Không tìm thấy sản phẩm"
     }
 
 }
 
+
+
+
+// lọc sản phẩm
 function filterProDuct() {
-    // alert("loc")
     var filter_Value = document.getElementsByTagName("select")[0].value;
     var hienthi_sp = document.getElementById("noidung");
     var gan_block = hienthi_sp.getElementsByClassName("list-card")[0];
@@ -180,11 +185,11 @@ function filterProDuct() {
            </a>
        </div>
     `;
-            
 
         }
 
     }
+    // chê độ mặc định sẽ xoá tất sản phẩm đã lọc và hiển thị tất sản phẩm
     if (filter_Value == "default") {
         i = 0;
         var sl_xoa = document.getElementsByClassName("card")
@@ -197,6 +202,108 @@ function filterProDuct() {
 
     }
 }
+
+
+function addProduct() {
+
+    var add_cart = document.getElementsByClassName("add-card-sp");
+    // lặp qua tất cả phần tử có Add sp
+    for (var i = 0; i < add_cart.length; i++) {
+        var add = add_cart[i];
+        // lắng nghe xem card nào đã click
+        add.addEventListener("click", function (event) {
+            var button = event.target;
+            var product = button.parentElement.parentElement;
+            var src_img = product.parentElement.getElementsByClassName("card-img")[0].src
+            var titleProduct = product.getElementsByClassName("card-title")[0].innerText;
+            var priceProdct = product.getElementsByClassName("gia")[0].innerText;
+            // Khi thêm sản phẩm vào giỏ hàng thì sẽ hiển thị modal
+            modal.style.display = "block";
+            showProductToModal(src_img, titleProduct, priceProdct);
+        })
+    }
+
+}
+
+function showProductToModal(src_img, titleProduct, priceProdct) {
+
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('cart-row')
+    var cartItems = document.getElementsByClassName('hienthi-sp')[0];
+    var cart_title = cartItems.getElementsByClassName('cart-item-title');
+    for (let i = 0; i < cart_title.length; i++) {
+        if (cart_title[i].innerText.lastIndexOf(titleProduct) != -1) {
+            // alert('Sản Phẩm Đã Có Trong Giỏ Hàng');
+            return titleProduct;
+        }
+    }
+
+    var cartRowContents = "";
+    cartRowContents += `<div class="cart-item cart-column">`;
+    cartRowContents += `<span class="cart-item-title">${titleProduct}</span>`;
+    cartRowContents += ` <img class="cart-item-image" src="${src_img}" width="100" height="100">`
+    cartRowContents += `</div>`;
+    cartRowContents += `<div class="cart-item cart-column">`;
+    cartRowContents += ` <p class="gia_md">$</p> `;
+    cartRowContents += ` <span class="cart-price cart-column">${priceProdct}</span> <span>`;
+    cartRowContents += `</div>`;
+    cartRowContents += `<div class="cart-item cart-column">`;
+    cartRowContents += `<input class="cart-quantity-input" type="number" value="1" min="1">`;
+    cartRowContents += `<button class="btn btn-danger" type="button" >Xóa</button>`;
+    cartRowContents += `</div>`;
+    cartRow.innerHTML = cartRowContents;
+    cartItems.append(cartRow);
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click',
+        function (event) {
+            var button_remove = event.target;
+            button_remove.parentElement.parentElement.remove();
+        })
+
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', function (event) {
+        var input = event.target
+        if (isNaN(input.value) || input.value <= 0) {
+            input.value = 1;
+        } else {
+            updateCard();
+        }
+    })
+
+
+    updateCard();
+}
+
+
+
+// update cart 
+function updateCard() {
+    var cart_item = document.getElementsByClassName("hienthi-sp")[0];
+    var cart_rows = cart_item.getElementsByClassName("cart-row");
+    var total = 0;
+
+    for (var i = 0; i <= cart_rows.length; i++) {
+        var cart_row = cart_rows[i];
+        var price_item = cart_row.getElementsByClassName("cart-price")[0];
+        var quantity_item = cart_row.getElementsByClassName("cart-quantity-input")[0];
+        var price = parseFloat(price_item.innerText)
+        var quantity = quantity_item.value;
+        quantity = parseFloat(quantity);
+
+
+        if (price == 0) {
+            document.getElementsByClassName("cart-total-price")[0].innerHTML = `0 VNĐ`;
+
+        } else {
+            total = total + (price * quantity);
+            document.getElementsByClassName("cart-total-price")[0].innerHTML = `$ ${total}`;
+        }
+    }
+}
+
+
+
+
+
+
 
 
 
