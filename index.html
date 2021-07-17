@@ -26,9 +26,8 @@
                 </div>
                 <ul>
                     <li><a href="">Trang chủ</a></li>
-                    <li><a href="">Tài khoản</a></li>
                     <li><a href="">Liên hệ</a></li>
-                    <li><a href="">Đánh giá</a></li>
+                    <li><a href="">Giới thiệu</a></li>
                     <li><a href="form/form.html">
                             <i class="fas fa-user"></i>
                             Login
@@ -74,13 +73,16 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary
                                 close-footer">Đóng</button>
-                        <button type="button" class="btn btn-primary order">Thanh
-                            Toán</button>
+                        <a href="form/form.html">
+                            <button type="button" class="btn btn-primary order">Thanh
+                                Toán</button>
+                        </a>
+
                     </div>
                 </div>
             </div>
         </header>
-        
+
         <!-- Nội dung sp -->
         <article>
 
@@ -98,9 +100,9 @@
                 </select>
                 <span>Tuỳ chọn lọc</span>
             </div>
+
             
             <!-- list product start -->
-
             <div id="noidung" onclick="">
                 <div class="list-card"></div>
 
@@ -110,24 +112,39 @@
         </article>
     </div>
 
+    <!-- xấu -->
+<!-- 
+    <footer>
+        <div class="footer-1">
+            <p>Design by Lê công nam ITC students</p>
+        </div>  
+         <div class="footer-2">
+           <a href="https://www.facebook.com/hoangtu.namle">
+            <i class="fab fa-facebook icon-ft"></i>
+           </a>
 
+           <a href="https://github.com/namlem4u">
+            <i class="fab fa-github icon-ft"></i>
+           </a>
+        </div>
+    </footer> -->
     <!-- <script src="script/slide.js"></script> -->
     <script src="script/shopping.js"></script>
     <!-- Jquery -->
     <script src="script/jQuery_v3.6.0.js"></script>
-    <script  > 
-        
-            showProduct(), 10000;
+    <script>
 
-      
-    // add loading
-            setTimeout(
-                $(window).on('load', function () {
+        showProduct(), 10000;
+
+
+        // add loading img gif while loading
+        setTimeout(
+            $(window).on('load', function () {
                 $('#loading').hide();
             }), 3000
 
-            )
-        
+        )
+
 
     </script>
 </body>

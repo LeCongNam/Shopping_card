@@ -43,7 +43,6 @@ function checkValidate() {
         document.getElementById("password-error").innerHTML = "Vui lòng điền Password";
     } else if (passWord.length > 0) {
     
-
         var passWordCheck = checkPwd(passWord);
         if (passWordCheck == "Good") {
             document.getElementById("password-error").style.color = "green";

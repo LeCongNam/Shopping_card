@@ -20,6 +20,7 @@ close_footer.onclick = function () {
 order.onclick = function () {
     alert("Đơn hàng đặt thành công")
 }
+
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
@@ -219,7 +220,7 @@ function addProduct() {
             var src_img = product.parentElement.getElementsByClassName("card-img")[0].src
             var titleProduct = product.getElementsByClassName("card-title")[0].innerText;
             var priceProdct = product.getElementsByClassName("gia")[0].innerText;
-            // Khi thêm sản phẩm vào giỏ hàng thì sẽ hiển thị modal
+            // show modol while click add
             modal.style.display = "block";
             showProductToModal(src_img, titleProduct, priceProdct);
         })
@@ -227,16 +228,20 @@ function addProduct() {
 
 }
 
+
 function showProductToModal(src_img, titleProduct, priceProdct) {
 
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('hienthi-sp')[0];
     var cart_title = cartItems.getElementsByClassName('cart-item-title');
+    var dem= 0;
     for (let i = 0; i < cart_title.length; i++) {
-        if (cart_title[i].innerText.lastIndexOf(titleProduct) != -1) {
+        if (cart_title[i].innerText === titleProduct ) {
+                console.log(cart_title[i].innerText,"tt:"+titleProduct);
             // alert('Sản Phẩm Đã Có Trong Giỏ Hàng');
-            return titleProduct;
+            return ;
+           
         }
     }
 
@@ -278,7 +283,7 @@ function showProductToModal(src_img, titleProduct, priceProdct) {
 
 
 
-// update cart 
+// add sp vào giỏ hàng 
 function updateCard() {
     var cart_item = document.getElementsByClassName("hienthi-sp")[0];
     var cart_rows = cart_item.getElementsByClassName("cart-row");
@@ -291,8 +296,6 @@ function updateCard() {
         var price = parseFloat(price_item.innerText)
         var quantity = quantity_item.value;
         quantity = parseFloat(quantity);
-
-
         if (price == 0) {
             document.getElementsByClassName("cart-total-price")[0].innerHTML = `0 VNĐ`;
 

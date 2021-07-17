@@ -11,8 +11,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://smtpjs.com/v3/smtp.js"> </script>
 
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script type="text/javascript">
+    // gửi mail bằng dịch vụ mail: smtpjs.com
+        function sendEmail() {
+            var mailUSR= document.getElementById("email-confirm").value;
+            console.log(mailUSR);
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "manhmai0402@gmail.com",
+                Password: "izadkfuchnhyuxgp",
+                To: `${mailUSR}`,
+                From: "manhmai0402@gmail.com",
+                Subject: "Send Email by JS",
+                Body: "Le cong nam Send Email By JS"
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
 
 </head>
 
@@ -72,7 +91,7 @@
                             <input type="email" class="form-control" name="email-confirm" id="email-confirm"
                                 aria-describedby="emailHelpId" placeholder="">
                             <span class="error-form">*</span><br>
-                            <input type="button" value="Send Email" onclick="sendEmail()" />
+                            <input type="button" value="Send Email" onclick="sendEmail()" class="btn btn-primary"/>
                         </div>
                     </div>
                 </form>
@@ -81,6 +100,8 @@
     </div>
 
     </div>
+
+
 
 
     <script src="validator.js">
